@@ -26,7 +26,6 @@ public class AlunosController {
         var alunoEmail = this.alunoRepository.findByEmail(aluno.getEmail());
 
         if(alunoEmail != null){
-            System.out.println(alunoEmail);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(aluno.getEmail() + " já existe.");
         }
 
