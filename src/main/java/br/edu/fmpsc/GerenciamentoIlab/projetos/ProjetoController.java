@@ -36,9 +36,9 @@ public class ProjetoController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(projeto.getNome() + " já existe.");
         }
 
-        relAlunosProjetosController.createRel(projeto.getId(), projeto.getAlunos()); // Colocando o projeto atual + a lista de alunos passada no JSON
-
         var projetoCreated = this.projetoRepository.save(projeto);
+        relAlunosProjetosController.createRel(projetoCreated.getId(), projetoCreated.getAlunos()); // Sempre colocar depois do saved pro id nao bugar
+        
         return ResponseEntity.status(HttpStatus.CREATED).body(projetoCreated);
     }
 

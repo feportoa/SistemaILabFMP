@@ -18,7 +18,9 @@ public class RelAlunosProjetos {
     // Por isso fiz essa classe, funciona que é uma beleza
 
     @Id
-    @GeneratedValue(generator = "UUID") // O @Entity obriga a ter um @Id
+    @GeneratedValue(generator = "long") // O @Entity obriga a ter um @Id
+    private long id;
+
     private UUID projetoId;
     private UUID alunoId;
 }

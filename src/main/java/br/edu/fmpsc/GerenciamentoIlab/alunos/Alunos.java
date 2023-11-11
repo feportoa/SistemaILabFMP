@@ -16,6 +16,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Transient;
 import lombok.Data;
 
 @Data
@@ -30,8 +31,8 @@ public class Alunos {
     private int matricula;
     private boolean isAtivo;
     
-    // @ManyToMany(mappedBy = "alunos")
-    // private List<Projeto> projetos = new ArrayList<>();
+    @Transient
+    private List<UUID> projetos;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
