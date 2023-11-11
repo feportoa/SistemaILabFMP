@@ -30,8 +30,8 @@ public class Alunos {
     private int matricula;
     private boolean isAtivo;
     
-    @ManyToMany(mappedBy = "alunos")
-    private List<Projeto> projetos = new ArrayList<>();
+    // @ManyToMany(mappedBy = "alunos")
+    // private List<Projeto> projetos = new ArrayList<>();
 
     @CreationTimestamp
     private LocalDateTime createdAt;

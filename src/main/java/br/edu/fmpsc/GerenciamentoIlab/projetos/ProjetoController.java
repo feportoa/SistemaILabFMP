@@ -11,10 +11,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.edu.fmpsc.GerenciamentoIlab.relAlunosProjetos.RelAlunosProjetos;
+import br.edu.fmpsc.GerenciamentoIlab.relAlunosProjetos.RelAlunosProjetosController;
+
 @RestController
 @RequestMapping("/projeto")
 public class ProjetoController {
-    
+
+    private final RelAlunosProjetosController relAlunosProjetosController; 
+
+    @Autowired
+    public ProjetoController(RelAlunosProjetosController relAlunosProjetosController) {
+        this.relAlunosProjetosController = relAlunosProjetosController; // Inicializando a minha relController como uma relController (honestamente, nao entendi, mas funcionou)
+    }
     @Autowired
     private IProjetoRepository projetoRepository;
 
@@ -27,8 +36,10 @@ public class ProjetoController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(projeto.getNome() + " já existe.");
         }
 
+        relAlunosProjetosController.createRel(projeto.getId(), projeto.getAlunos()); // Colocando o projeto atual + a lista de alunos passada no JSON
+
         var projetoCreated = this.projetoRepository.save(projeto);
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(projetoCreated);
+        return ResponseEntity.status(HttpStatus.CREATED).body(projetoCreated);
     }
 
 

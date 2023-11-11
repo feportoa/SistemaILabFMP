@@ -16,6 +16,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Transient;
 import lombok.Data;
 
 @Data
@@ -30,8 +31,8 @@ public class Projeto {
     private LocalDateTime datas; // Provavelmente vai ser atualizado quando tiver a classe agendas
     private boolean isAtivo;
 
-    @ManyToMany // Muito info indo por JSON, filtrar pra aceitar só o id
-    private List<Alunos> alunos = new ArrayList<>();
+    @Transient // Transient nao eh passado para o banco de dados, mas eh aceito no JSON
+    private List<UUID> alunos = new ArrayList<>(); // Passei um UUID ja que o banco nao tem o tipo Alunos
 
     @CreationTimestamp
     private LocalDateTime createdAt;
