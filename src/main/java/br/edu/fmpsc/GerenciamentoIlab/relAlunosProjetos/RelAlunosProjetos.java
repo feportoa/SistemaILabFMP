@@ -1,13 +1,13 @@
 package br.edu.fmpsc.GerenciamentoIlab.relAlunosProjetos;
 
-import java.util.List;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import lombok.Data;
 
 @Data
@@ -16,6 +16,16 @@ import lombok.Data;
 public class RelAlunosProjetos {
     // Ja passei raiva demais com o @ManyToMany
     // Por isso fiz essa classe, funciona que é uma beleza
+
+    @JsonIgnore // Nao queremos que isso apareca no JSON de jeito nenhum
+    public RelAlunosProjetos(UUID projetoId, UUID alunoId){
+        this.projetoId = projetoId;
+        this.alunoId = alunoId;
+    }
+
+    @JsonIgnore
+    public RelAlunosProjetos(){
+    }
 
     @Id
     @GeneratedValue(generator = "long") // O @Entity obriga a ter um @Id
