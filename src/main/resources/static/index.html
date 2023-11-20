@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #d0d7db;
+            color: #ffffff;
+        }
+
+        .login-container {
+            display: flex;
+            max-width: 800px; /* Largura máxima para limitar o tamanho das divs */
+            margin: auto; /* Centralizar as divs na tela */
+        }
+
+        .left-side {
+            margin-top: 35px;
+            height: 500px;
+            flex: 1;
+            background-color: #2980b9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            
+        }
+
+        .left-side img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .right-side {
+            margin-top: 35px;
+            height: 500px;
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff; /* Alterado para branco */
+            border-radius: 0px;
+        }
+
+        .user-icon {
+            margin-bottom: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+            color: rgba(170, 167, 167, 0.843);
+            border: solid 1px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #e0dbdb;
+            box-sizing: border-box;
+        }
+
+
+       
+
+        .input-group input::before {
+            content: '\1F511'; /* Unicode for the small square symbol */
+            font-size: 18px;
+            color: #808080;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .password-link {
+            text-align: right;
+            margin-bottom: 10px;
+            color: #2980b9;
+            
+        }
+
+        .login-button {
+            background-color: #2980b9;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .bottom-logo {
+            margin-top: auto;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <div class="left-side">
+        <img src="FOTOS/ILAB-removebg-preview.png" alt="Logo">
+    </div>
+
+
+    <div class="right-side">
+        <div class="user-icon">
+            <a class="icohomem" href="link_para_icone_usuario"><img src="FOTOS/iconehomem2-removebg-preview.png" alt="Ícone de Usuário"></a>
+        </div>
+
+        <div class="input-group">
+            <input type="text" placeholder="CPF/CNPJ">
+        </div>
+        <div class="input-group">
+            <input type="password" placeholder="*******">
+        </div>
+        <a  class="password-link" href="">Esqueceu sua senha?</a> 
+
+        
+       
+        <button class="login-button">Entrar</button>
+        <div class="bottom-logo">
+            <a href="link_para_outra_logo"><img src="FOTOS/Logo-FMP-FINAL.png" alt="Outra Logo"></a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
