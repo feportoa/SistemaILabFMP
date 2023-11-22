@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizar e Editar Projetos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .projetos-box {
+      max-width: 800px;
+      margin: auto;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #a6c7e2; /* Fundo azul claro para os títulos */
+    }
+    .btn-editar {
+      background-color: #3498db; /* Cor azul */
+      color: #fff; /* Texto branco */
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    h2{
+      background-color: #2980b9; /* Cor de fundo azul */
+      color: #000; /* Cor do texto preto */
+      padding: 10px; /* Espaçamento interno */
+      text-align: center; /* Alinhamento do texto ao centro */
+      font-size: 18px; /* Tamanho da fonte */
+      font-weight: bold; /* Negrito */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="projetos-box">
+    <h2 style="text-align: center;">Visualizar e Editar Projetos</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Datas</th>
+          <th>Status</th>
+          <th>Alunos</th>
+          <th>Recursos</th>
+          <th>Descrição</th>
+          <th>Editar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Projeto 1</td>
+          <td>01/01/2023 - 31/12/2023</td>
+          <td>Em andamento</td>
+          <td>Aluno 1, Aluno 2</td>
+          <td>Recursos A, Recursos B</td>
+          <td>Descrição do Projeto 1</td>
+          <td><button class="btn-editar" onclick="editarProjeto(1)">Editar</button></td>
+        </tr>
+        <!-- Adicione mais linhas conforme necessário -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function editarProjeto(projetoId) {
+      // Adicione a lógica para redirecionar para a página de edição do projeto com o ID fornecido
+      window.location.href = 'editar_projeto.php?id=' + projetoId;
+    }
+    function voltar() {
+      // Adicione a lógica para voltar, por exemplo, redirecionando para a página anterior
+      window.history.back();
+    }
+  </script>
+
+</body>
+</html>

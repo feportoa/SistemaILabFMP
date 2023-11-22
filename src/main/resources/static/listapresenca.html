@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Presença</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .presenca-box {
+      max-width: 600px;
+      margin: auto;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    th.nome-col {
+      background-color: #3498db; /* Fundo azul */
+      color: #fff; /* Texto branco */
+    }
+    th.presenca-col {
+      background-color: #2ecc71; /* Fundo verde */
+      color: #fff; /* Texto branco */
+    }
+    th.falta-col {
+      background-color: #e74c3c; /* Fundo vermelho */
+      color: #fff; /* Texto branco */
+    }
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+    }
+    button {
+      background-color: #3498db; /* Fundo azul */
+      color: #fff; /* Texto branco */
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      float: right;
+    }
+    h2 {
+      background-color: #2980b9; /* Cor de fundo azul */
+      color: #000; /* Cor do texto preto */
+      padding: 10px; /* Espaçamento interno */
+      text-align: center; /* Alinhamento do texto ao centro */
+      font-size: 18px; /* Tamanho da fonte */
+      font-weight: bold; /* Negrito */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="presenca-box">
+    <h2>Lista de Presença</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="nome-col">Alunos</th>
+          <th class="presenca-col">Presença</th>
+          <th class="falta-col">Falta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Aluno 1</td>
+          <td>
+            <input type="checkbox" name="presenca-aluno1">
+          </td>
+          <td>
+            <input type="checkbox" name="falta-aluno1">
+          </td>
+        </tr>
+        <tr>
+          <td>Aluno 2</td>
+          <td>
+            <input type="checkbox" name="presenca-aluno2">
+          </td>
+          <td>
+            <input type="checkbox" name="falta-aluno2">
+          </td>
+        </tr>
+        <!-- Adicione mais linhas conforme necessário -->
+      </tbody>
+    </table>
+
+    <button onclick="salvarPresenca()">Salvar</button>
+  </div>
+
+  <script>
+    function salvarPresenca() {
+      // Lógica para salvar as informações
+      alert("Presença salva!");
+    }
+  </script>
+
+</body>
+</html>
