@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Aluno</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .editar-aluno-box {
+      max-width: 600px;
+      margin: auto;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #a6c7e2; /* Fundo azul claro para os títulos */
+    }
+    .btn-salvar {
+      background-color: #3498db; /* Cor azul */
+      color: #fff; /* Texto branco */
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      float: right;
+    }
+    h2{
+      background-color: #2980b9; /* Cor de fundo azul */
+      color: #000; /* Cor do texto preto */
+      padding: 10px; /* Espaçamento interno */
+      text-align: center; /* Alinhamento do texto ao centro */
+      font-size: 18px; /* Tamanho da fonte */
+      font-weight: bold; /* Negrito */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="editar-aluno-box">
+    <h2 style="text-align: center;">Editar Aluno</h2>
+
+    <table>
+      <tbody>
+        <tr>
+          <th>Nome</th>
+          <td><input type="text" id="nome" value="Nome do Aluno"></td>
+        </tr>
+        <tr>
+          <th>CPF</th>
+          <td><input type="text" id="cpf" value="123.456.789-00"></td>
+        </tr>
+        <tr>
+          <th>Matrícula</th>
+          <td><input type="text" id="matricula" value="2021001"></td>
+        </tr>
+        <tr>
+          <th>E-Mail</th>
+          <td><input type="text" id="email" value="aluno@example.com"></td>
+        </tr>
+        <tr>
+          <th>Projeto</th>
+          <td><input type="text" id="projeto" value="Projeto A"></td>
+        </tr>
+        <tr>
+          <th>Anotação</th>
+          <td><textarea id="anotacao">Observação sobre o aluno</textarea></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button class="btn-salvar" onclick="salvarEdicao()">Salvar</button>
+  </div>
+
+  <script>
+    function salvarEdicao() {
+      // Adicione a lógica para salvar as informações editadas
+      alert("Informações salvas!");
+    }
+  </script>
+
+</body>
+</html>
