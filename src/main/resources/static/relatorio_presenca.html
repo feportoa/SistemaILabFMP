@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório de Frequência - Nome do Projeto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .relatorio-box {
+      max-width: 600px;
+      margin: auto;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    h2 {
+      background-color: #2980b9; /* Cor de fundo azul */
+      color: #000; /* Cor do texto preto */
+      padding: 10px; /* Espaçamento interno */
+      text-align: center; /* Alinhamento do texto ao centro */
+      font-size: 18px; /* Tamanho da fonte */
+      font-weight: bold; /* Negrito */
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th {
+      padding: 12px;
+      text-align: left;
+       border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      background-color: #add8e6;
+    }
+    td {
+      padding: 12px;
+      text-align: left;
+       border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+
+    }
+    th:last-child, td:last-child {
+      border-right: none; /* Remover a borda direita da última coluna */
+    }
+    td {
+      border-right: 1px solid #ddd;
+    }
+    .btn-voltar {
+      background-color: #3498db; /* Cor azul */
+      color: #fff; /* Texto branco */
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      float: right;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="relatorio-box">
+    <h2>Relatório de Frequência - Nome do Projeto</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome do Aluno</th>
+          <th>Presenças</th>
+          <th>Faltas</th>
+          <th>Porcentagem de Presenças</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Aluno 1</td>
+          <td>10</td>
+          <td>2</td>
+          <td>80%</td>
+        </tr>
+        <!-- Adicione mais linhas conforme necessário -->
+      </tbody>
+    </table>
+  </div>
+  <script>
+    function voltar() {
+      // Adicione a lógica para voltar, por exemplo, redirecionando para a página anterior
+      window.history.back();
+    }
+  </script>
+
+</body>
+</html>

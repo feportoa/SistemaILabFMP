@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Principal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .menu-box {
+      max-width: 400px;
+      margin: auto;
+      border: 1px solid #2980b9; /* Cor da borda azul */
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      text-align: center;
+    }
+    li a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #fff; /* Texto branco */
+      background-color: #2980b9; /* Cor de fundo azul */
+      border-bottom: 1px solid #fff; /* Linha de separação branca */
+    }
+    li:last-child a {
+      border-bottom: none; /* Remover a linha de separação no último botão */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu-box">
+    <h2 style="text-align: center; background-color: #3498db; color: #fff; padding: 10px 0; margin: 0;">Menu Principal</h2>
+
+    <ul>
+      <li><a href="cadastrar_aluno_projeto.html">Cadastrar Alunos/Projetos</a></li>
+      <li><a href="informacoes_projetos.html">Visualizar e Editar Projetos</a></li>
+      <li><a href="informacoes_alunos.html">Visualizar e Editar Alunos</a></li>
+      <li><a href="gerar_relatorio_presenca.html">Gerar Relatório de Presença</a></li>
+    </ul>
+  </div>
+
+</body>
+</html>
