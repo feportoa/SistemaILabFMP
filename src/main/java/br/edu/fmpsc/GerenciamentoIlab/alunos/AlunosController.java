@@ -27,7 +27,7 @@ public class AlunosController {
     @Autowired
     private IAlunoRepository alunoRepository;
 
-    @PostMapping("")
+    @PostMapping("/cadastrar")
     public ResponseEntity create(@RequestBody Alunos aluno)
     {
         var alunoEmail = this.alunoRepository.findByEmail(aluno.getEmail());

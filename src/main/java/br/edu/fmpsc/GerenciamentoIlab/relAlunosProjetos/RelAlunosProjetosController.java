@@ -58,20 +58,22 @@ public class RelAlunosProjetosController {
     // Agora eh pra ser usado no AlunosController
     public ResponseEntity createRel(List<UUID> projetos_id, UUID aluno_id)
     {
-        int totalAlunos = projetos_id.size();
-        int alunosCarregados = 0; // Começa como 0 pq null ia dar problema
-        List<RelAlunosProjetos> relList;
+        if(projetos_id != null && projetos_id.size() > 0){
+            int totalAlunos = projetos_id.size();
+            int alunosCarregados = 0; // Começa como 0 pq null ia dar problema
+            List<RelAlunosProjetos> relList;
+            
+            for(UUID p : projetos_id){
+                relList = this.list(); // Com certeza nao eh a melhor opcao, assim como eu nao sou o melhor programador do mundo
 
-        for(UUID p : projetos_id){
-            relList = this.list(); // Com certeza nao eh a melhor opcao, assim como eu nao sou o melhor programador do mundo
-
-            if(relList.indexOf(new RelAlunosProjetos(p, aluno_id)) == -1){ // Se nao tiver nem o projeto e nem o aluno atual, salva no banco
-                RelAlunosProjetos rel = new RelAlunosProjetos(p, aluno_id); // Como o RelAlunosProjeto nao foi passado nos parametros, passamos ele por aqui
-                this.relRepository.save(rel);
+                if(relList.indexOf(new RelAlunosProjetos(p, aluno_id)) == -1){ // Se nao tiver nem o projeto e nem o aluno atual, salva no banco
+                    RelAlunosProjetos rel = new RelAlunosProjetos(p, aluno_id); // Como o RelAlunosProjeto nao foi passado nos parametros, passamos ele por aqui
+                    this.relRepository.save(rel);
+                }
             }
-        }
-        if(alunosCarregados > 0){
-            return ResponseEntity.status(HttpStatus.CREATED).body(alunosCarregados + "/" + totalAlunos + " carregados no banco com sucesso.");
+            if(alunosCarregados > 0){
+                return ResponseEntity.status(HttpStatus.CREATED).body(alunosCarregados + "/" + totalAlunos + " carregados no banco com sucesso.");
+            }
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Nenhum aluno carregado no banco de dados");
     }

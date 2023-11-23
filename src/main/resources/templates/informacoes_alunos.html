@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informações dos Alunos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .alunos-box {
+      max-width: 800px;
+      margin: auto;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #a6c7e2; /* Fundo azul claro para os títulos */
+    }
+    .btn-editar {
+      background-color: #3498db; /* Cor azul */
+      color: #fff; /* Texto branco */
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn-voltar {
+      background-color: #3498db; /* Cor azul */
+      color: #fff; /* Texto branco */
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      float: right;
+    }
+    h2{
+      background-color: #2980b9; /* Cor de fundo azul */
+      color: #000; /* Cor do texto preto */
+      padding: 10px; /* Espaçamento interno */
+      text-align: center; /* Alinhamento do texto ao centro */
+      font-size: 18px; /* Tamanho da fonte */
+      font-weight: bold; /* Negrito */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="alunos-box">
+    <h2 style="text-align: center;">Informações dos Alunos</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>E-Mail</th>
+          <th>Matrícula</th>
+          <th>Projeto</th>
+          <th>Anotação</th>
+          <th>Editar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="aluno : ${alunos}">
+          <td th:text="${aluno.nome}"></td>
+          <td th:text="${aluno.cpf}"></td>
+          <td th:text="${aluno.email}"></td>
+          <td th:text="${aluno.matricula}">2021001</td>
+          <td>Projeto A</td>
+          <td>Observação sobre o aluno 1</td>
+          <td><button class="btn-editar" onclick="editarAluno(1)">Editar</button></td>
+        </tr>
+        <!-- Adicione mais linhas conforme necessário -->
+      </tbody>
+    </table>
+
+    <button class="btn-voltar" onclick="voltar()">Voltar</button>
+  </div>
+
+  <script>
+    function editarAluno(alunoId) {
+      // Adicione a lógica para redirecionar para a página de edição do aluno com o ID fornecido
+      window.location.href = 'editar_aluno.php?id=' + alunoId;
+    }
+
+    function voltar() {
+      // Adicione a lógica para voltar, por exemplo, redirecionando para a página anterior
+      window.history.back();
+    }
+  </script>
+
+</body>
+</html>
