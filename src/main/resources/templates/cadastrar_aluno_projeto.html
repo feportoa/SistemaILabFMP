@@ -156,7 +156,10 @@
                 <input type="number" id="matricula" name="matricula" th:field="*{matricula}" required>
 
                 <label for="matricula">Projeto:</label>
-                <div class="multiselect">
+                <select name="projetos" id="projetos" th:field="*{projetos}">
+                    <option th:each="projeto : ${projetos}" th:value="${projeto.id}" th:text="${projeto.nome}"></option>
+                </select>
+                <!-- <div class="multiselect">
                     <div class="select-box">
                         <div class="over-select" onclick="showCheckboxes('aluno')">
                             Seleciona um projeto
@@ -169,7 +172,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <label for="anotacao">Anotação:</label>
                 <textarea id="anotacao" name="anotacao"></textarea>

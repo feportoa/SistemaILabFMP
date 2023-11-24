@@ -1,16 +1,22 @@
 package br.edu.fmpsc.GerenciamentoIlab.relAlunosProjetos;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.edu.fmpsc.GerenciamentoIlab.projetos.Projeto;
+import br.edu.fmpsc.GerenciamentoIlab.projetos.ProjetoController;
 
 @RestController
 @RequestMapping("/alunos/projetos")
@@ -18,6 +24,8 @@ public class RelAlunosProjetosController {
 
     @Autowired
     private IRelAlunosProjetosRepository relRepository;
+
+    private ProjetoController projetoController;
 
     @PostMapping("")
     public ResponseEntity createRel(@RequestBody RelAlunosProjetos rel)
@@ -82,4 +90,27 @@ public class RelAlunosProjetosController {
     public List<RelAlunosProjetos> list(){
         return relRepository.findAll();
     }
+
+    /*@GetMapping("/projetos")
+    public List<Optional<Projeto>> listProjetosInAlunos(UUID aluno_id) {
+        List<RelAlunosProjetos> listRelProj = relRepository.findByAlunoId(aluno_id);
+        List<Optional<Projeto>> projetoLista = new ArrayList<>();
+        for(int i = 0; i < listRelProj.size(); i++){
+            if(projetoController != null){
+                projetoLista.add(projetoController.listOnly(listRelProj.get(i).getProjetoId()));
+            }
+        }
+        return projetoLista;
+    }*/
+
+    @GetMapping("/projetos")
+    public List<UUID> listProjetosInAlunos(UUID aluno_id) {
+        List<RelAlunosProjetos> listRel = relRepository.findByAlunoId(aluno_id);
+        List<UUID> projetosId = new ArrayList<>();
+        for(int i = 0; i < listRel.size(); i++){
+            projetosId.add(listRel.get(i).getProjetoId());
+        }
+        return projetosId;
+    }
+
 }
