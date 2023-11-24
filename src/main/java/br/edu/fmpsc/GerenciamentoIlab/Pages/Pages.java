@@ -18,22 +18,22 @@ public class Pages {
     @Autowired
     private AlunosController alunosController;
 
-    @PostMapping("/cadastrar")
-    public String cadastrar(@ModelAttribute Alunos aluno, Model model){
-        alunosController.create(aluno);
-        return "redirect:/pagina";
+    @PostMapping("/cadastrarAluno") // Faz o Post das informacoes da pagina de cadastro (só do aluno) e redireciona para a visualizacao de alunos
+    public String cadastrarAluno(@ModelAttribute Alunos aluno){ // @ModelAttribute coleta o atributo atribuido no formCadastro()
+        alunosController.create(aluno); // Cria um aluno no BD atraves do AlunosController
+        return "redirect:/infoAluno"; // Redireciona para a pagina /infoAluno
     }
 
-    @GetMapping("/pagina")
+    @GetMapping("/infoAluno") // Faz um GET pra pagina informacoes_alunos
     public String pagina(Model model) {
-        List<Alunos> alunos = alunosController.list(); 
-        model.addAttribute("alunos", alunos);
-        return "informacoes_alunos"; // Retorna o nome do template Thymeleaf (sem a extensão .html)
+        List<Alunos> alunos = alunosController.list(); // Coleta a lista de alunos
+        model.addAttribute("alunos", alunos); // Adiciona um atributo na pagina "alunos" usando a variavel aluno (sendo utilizado no frontend)
+        return "informacoes_alunos"; // Retorna a pagina informacoes_alunos.html (nao precisa botar ".html" no final)
     }
 
-    @GetMapping("/cadastrar")
+    @GetMapping("/cadastrar") // Faz um GET pra pagina cadastrar_alunos_projetos
     public String formCadastro(Model model) {
-        model.addAttribute("aluno", new Alunos());
+        model.addAttribute("aluno", new Alunos()); // Cria um atributo aluno que pode ser manipulado pra fazer cadastro (/cadastrarAluno)
         return "cadastrar_aluno_projeto";
     }
 }
