@@ -34,6 +34,12 @@ public class Pages {
         return "redirect:/infoAluno"; // Redireciona para a pagina /infoAluno
     }
 
+    @PostMapping("/cadastrarProjeto") // Faz o Post das informacoes da pagina de cadastro (só do aluno) e redireciona para a visualizacao de alunos
+    public String cadastrarProjeto(@ModelAttribute Projeto projeto){ // @ModelAttribute coleta o atributo atribuido no formCadastro()
+        projetoController.createProjeto(projeto); // Cria um aluno no BD atraves do AlunosController
+        return "redirect:/infoAluno"; // Redireciona para a pagina /infoAluno
+    }
+
     @GetMapping("/infoAluno") // Faz um GET pra pagina informacoes_alunos
     public String pagina(Model model) {
         List<Alunos> alunos = alunosController.list(); // Coleta a lista de alunos
@@ -46,7 +52,10 @@ public class Pages {
     @GetMapping("/cadastrar") // Faz um GET pra pagina cadastrar_alunos_projetos
     public String formCadastro(Model model) {
         List<Projeto> projetos = projetoController.list();
+        List<Alunos> alunos = alunosController.list();
         model.addAttribute("projetos", projetos);
+        model.addAttribute("alunos", alunos);
+        model.addAttribute("projeto", new Projeto());
         model.addAttribute("rels", relController);
         model.addAttribute("aluno", new Alunos()); // Cria um atributo aluno que pode ser manipulado pra fazer cadastro (/cadastrarAluno)
         return "cadastrar_aluno_projeto";

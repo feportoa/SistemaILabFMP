@@ -159,20 +159,6 @@
                 <select name="projetos" id="projetos" th:field="*{projetos}">
                     <option th:each="projeto : ${projetos}" th:value="${projeto.id}" th:text="${projeto.nome}"></option>
                 </select>
-                <!-- <div class="multiselect">
-                    <div class="select-box">
-                        <div class="over-select" onclick="showCheckboxes('aluno')">
-                            Seleciona um projeto
-                        </div>
-                        <div class="checkboxes" id="checkboxesAluno">
-                            <div class="option" onclick="toggleCheckbox(this, 'aluno_option1')">NEABI-Nucleo de estudo afro brazileiro e endigena</div>
-                            <div class="option" onclick="toggleCheckbox(this, 'aluno_option2')">SEMEAR-Nucleo de sustentabilidade</div>
-                            <div class="option" onclick="toggleCheckbox(this, 'aluno_option3')">NULI-Nucleo de linguas</div>
-                            <div class="option" onclick="toggleCheckbox(this, 'aluno_option3')">LEFIS-Laboratorios de estudos de filosofia</div>
-
-                        </div>
-                    </div>
-                </div> -->
 
                 <label for="anotacao">Anotação:</label>
                 <textarea id="anotacao" name="anotacao"></textarea>
@@ -183,35 +169,26 @@
 
         <div class="form-box">
             <h2>Cadastrar Projeto</h2>
-            <form action="processar_projeto.php" method="post">
+            <form th:action="@{/cadastrarProjeto}" th:object="${projeto}" method="post">
                 <label for="nomeProjeto">Nome:</label>
-                <input type="text" id="nomeProjeto" name="nomeProjeto" required>
+                <input type="text" th:field="*{nome}" id="nomeProjeto" name="nomeProjeto" required>
 
-                <label for="datas">Datas:</label>
-                <input type="text" id="datas" name="datas" required>
+                <!-- <label for="datas">Datas:</label>
+                <input type="text" id="datas" name="datas"> -->
 
                 <label for="status">Status:</label>
-                <select id="status" name="status" required>
+                <select id="status" name="status">
                     <option value="Em Andamento">Em Andamento</option>
                     <option value="Concluído">Concluído</option>
                 </select>
 
-                <label for="matricula">Alunos:</label>
-                <div class="multiselect">
-                    <div class="select-box">
-                        <div class="over-select" onclick="showCheckboxes('projeto')">
-                            Seleciona um aluno
-                        </div>
-                        <div class="checkboxes" id="checkboxesProjeto">
-                            <div class="option" onclick="toggleCheckbox(this, 'projeto_option1')">Monique</div>
-                            <div class="option" onclick="toggleCheckbox(this, 'projeto_option2')">Ricardo</div>
-                            <div class="option" onclick="toggleCheckbox(this, 'projeto_option3')">Luis</div>
-                        </div>
-                    </div>
-                </div>
+                <label for="Alunos">Alunos:</label>
+                <select name="alunos" id="alunos" th:field="*{alunos}">
+                    <option th:each="aluno_p : ${alunos}" th:value="${aluno_p.id}" th:text="${aluno_p.nome}"></option>
+                </select>
 
                 <label for="recursos">Recursos:</label>
-                <input type="text" id="recursos" name="recursos" required>
+                <input type="text" id="recursos" name="recursos">
 
                 <label for="descricao">Descrição:</label>
                 <textarea id="descricao" name="descricao"></textarea>
