@@ -27,7 +27,7 @@ public class Alunos {
     @GeneratedValue(generator = "UUID")
     private UUID id;
 
-    private String cpf, nome, email;
+    private String cpf, nome, email, anotacao;
     private int matricula;
     private boolean isAtivo;
     

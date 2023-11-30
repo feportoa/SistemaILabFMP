@@ -85,7 +85,7 @@
               <span th:text="${projeto.nome}"></span>
             </div>
           </td>
-          <td>Observação sobre o aluno 1</td>
+          <td th:text="${aluno.anotacao}"></td>
           <td><button class="btn-editar" onclick="editarAluno(1)">Editar</button></td>
         </tr>
         <!-- Adicione mais linhas conforme necessário -->
