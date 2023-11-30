@@ -30,13 +30,11 @@ public class RelAlunosProjetosController {
     @PostMapping("")
     public ResponseEntity createRel(@RequestBody RelAlunosProjetos rel)
     {
-        var projetoId = this.relRepository.findByProjetoId(rel.getProjetoId());
-        var alunoId = this.relRepository.findByAlunoId(rel.getAlunoId());
-
-        if(projetoId != null && alunoId != null){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Projeto e Aluno ja estao relacionados");
+        var existingRel = this.relRepository.findByProjetoIdAndAlunoId(rel.getProjetoId(), rel.getAlunoId());
+        if(existingRel != null){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Projeto e Aluno ja estao relacionados");
         }
-
+        
         var relCreated = this.relRepository.save(rel);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(relCreated);
     }
@@ -90,18 +88,6 @@ public class RelAlunosProjetosController {
     public List<RelAlunosProjetos> list(){
         return relRepository.findAll();
     }
-
-    /*@GetMapping("/projetos")
-    public List<Optional<Projeto>> listProjetosInAlunos(UUID aluno_id) {
-        List<RelAlunosProjetos> listRelProj = relRepository.findByAlunoId(aluno_id);
-        List<Optional<Projeto>> projetoLista = new ArrayList<>();
-        for(int i = 0; i < listRelProj.size(); i++){
-            if(projetoController != null){
-                projetoLista.add(projetoController.listOnly(listRelProj.get(i).getProjetoId()));
-            }
-        }
-        return projetoLista;
-    }*/
 
     @GetMapping("/projetos")
     public List<UUID> listProjetosInAlunos(UUID aluno_id) {

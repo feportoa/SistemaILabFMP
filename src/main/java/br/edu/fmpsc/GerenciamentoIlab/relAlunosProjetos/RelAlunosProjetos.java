@@ -23,7 +23,6 @@ public class RelAlunosProjetos {
         this.alunoId = alunoId;
     }
 
-    @JsonIgnore
     public RelAlunosProjetos(){
     }
 
