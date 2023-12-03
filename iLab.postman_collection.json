@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "ed11462d-971f-4338-b454-30afe5267436",
+		"name": "iLab",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26639801",
+		"_collection_link": "https://martian-crater-628332.postman.co/workspace/Projeto-iLab~898585b8-b051-43f9-a45e-f9447332ae81/collection/26639801-ed11462d-971f-4338-b454-30afe5267436?action=share&source=collection_link&creator=26639801"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Jose\",\n    \"cnpj_cpf\": \"001002003-45\",\n    \"email\": \"jose.joseFMP@gmail.com\",\n    \"senha\": \"1234\",\n    \"coordenador\": true \n}"
+				},
+				"url": {
+					"raw": "localhost:8080/user",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Agenda",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"teste\",\n    \"descricao\": \"teste desc\",\n    \"data\": \"2023-11-23\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/agenda",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agenda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Aluno",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cpf\": \"001002003-14\",\n    \"nome\": \"Teste\",\n    \"email\": \"Teste@gmail.com\",\n    \"projetos\": [],\n    \"matricula\": \"1234\",\n    \"isAtivo\": true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/aluno/cadastrar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aluno",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Projeto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Projeto Teste\",\n    \"descricao\": \"Testando projeto\",\n    \"ativo\": true,\n    \"alunos\": [\n        \"\"\n    ]\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/projeto",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"projeto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Rel Alunos-Projetos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"alunoId\": \"\",\n    \"projetoId\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/alunos/projetos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alunos",
+						"projetos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Projeto",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/projeto",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"projeto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Rel Alunos-Projetos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/alunos/projetos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alunos",
+						"projetos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Aluno",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/aluno",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aluno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Agendas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/agenda",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agenda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/user",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
